@@ -7,10 +7,12 @@ export default defineConfig({
   build: {
     lib: {
       entry: 'src/index.ts',
-      name: "andre-react-library"
+      name: 'AndreReactLibrary',
+      formats: ['es', 'cjs'],
+      fileName: (format) => (format === 'es' ? 'index.js' : 'index.cjs'),
     },
     rollupOptions: {
-      external: ['react'],
+      external: ['react', 'react-dom', 'react/jsx-runtime'],
     },
-  }
+  },
 })
